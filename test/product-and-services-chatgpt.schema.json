@@ -1,0 +1,107 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/product.schema.json",
+    "type": "object",
+    "title": "Description of a team and the product/services they offer",
+    "description": "Description of a team and the product/services they offer",
+    "properties": {
+        "team": {
+            "type": "object",
+            "description": "The description of the team, what they stand for and what they try to accomplish",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the team"
+                },
+                "composition": {
+                    "type": "array",
+                    "description": "A list of how the team is composed, what its members are",
+                    "items": {
+                        "type": "string",
+                        "description": "A statement describing the composition of the team, what are their expertise"
+                    }
+                },
+                "purposes": {
+                    "type": "array",
+                    "description": "A list of purposes, why the team exists and what they are trying to accomplish",
+                    "items": {
+                        "type": "string",
+                        "description": "A statement describing the purpose of the team, what they are trying to accomplish, why they exist"
+                    }
+                },
+                "context": {
+                    "type": "array",
+                    "description": "A list of statement explaining the context in which the team evolves",
+                    "items": {
+                        "type": "string",
+                        "description": "A statement describing the context in which the team evolves"
+                    }
+                }
+            }
+        },
+        "products_and_services": {
+            "type": "object",
+            "description": "A suite of product/services the team provides. A product would be a tool like a CLI or website while a service would be a managed solution the user can use either via another tool/product or by subscribing to it",
+            "gitlab_runners": {
+                "type": "array",
+                "description": "A list of fully managed GitLab runners the team is custodian of, this is a service",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the service"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the service"
+                    },
+                    "purposes": {
+                        "type": "array",
+                        "description": "A list of purposes, why this service exist exists and what it is trying to accomplish",
+                        "items": {
+                            "type": "string",
+                            "description": "A statement describing the purpose of the service, what it is trying to accomplish, why it exists"
+                        }
+                    },
+                    "users": {
+                        "type": "array",
+                        "description": "A list of statements about the users of the service",
+                        "items": {
+                            "type": "string",
+                            "description": "A statement describing a typical user of the service"
+                        }
+                    }
+                }
+            },
+            "video_game_consoles": {
+                "type": "array",
+                "description": "A list of fully managed video game consoles to use in their CI workflow to run automated tests, this is a service",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the service"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the service"
+                    },
+                    "purposes": {
+                        "type": "array",
+                        "description": "A list of purposes, why this service exist exists and what it is trying to accomplish",
+                        "items": {
+                            "type": "string",
+                            "description": "A statement describing the purpose of the service, what it is trying to accomplish, why it exists"
+                        }
+                    },
+                    "users": {
+                        "type": "array",
+                        "description": "A list of statements about the users of the service",
+                        "items": {
+                            "type": "string",
+                            "description": "A statement describing a typical user of the service"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
