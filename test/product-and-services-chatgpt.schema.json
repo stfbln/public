@@ -101,6 +101,40 @@
                         }
                     }
                 }
+            },
+            "developer_tools": {
+                "type": "array",
+                "description": "A list of developer tools made available to the developers, this is a product",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "description": "The type of tool"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the tool"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the tool"
+                    },
+                    "purposes": {
+                        "type": "array",
+                        "description": "A list of purposes, why this tool exist exists and what it is trying to accomplish",
+                        "items": {
+                            "type": "string",
+                            "description": "A statement describing the purpose of the tool, what it is trying to accomplish, why it exists"
+                        }
+                    },
+                    "users": {
+                        "type": "array",
+                        "description": "A list of statements about the users of the tool",
+                        "items": {
+                            "type": "string",
+                            "description": "A statement describing a typical user of the tool"
+                        }
+                    }
+                }
             }
         }
     }
