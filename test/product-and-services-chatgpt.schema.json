@@ -133,6 +133,28 @@
                             "type": "string",
                             "description": "A statement describing a typical user of the tool"
                         }
+                    },
+                    "sample_usage": {
+                        "type": "array",
+                        "description": "A list of sample usage of the tool",
+                        "items": {
+                            "type": "object",
+                            "description": "A sample usage of the tool, when to use it, why and how",
+                            "properties": {
+                                "when": {
+                                    "type": "array",
+                                    "description": "A list of purposes, when to use this sample usage",
+                                    "items": {
+                                        "type": "string",
+                                        "description": "A statementdescribing when this sample is relevant"
+                                    }
+                                },
+                                "how": {
+                                    "type": "string",
+                                    "description": "A sample command line for the described purposes in \"when\""
+                                }
+                            }
+                        }
                     }
                 }
             }
