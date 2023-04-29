@@ -3,11 +3,11 @@
     "$id": "https://example.com/product.schema.json",
     "type": "array",
     "title": "Team \"TGR\" GitLab Runners",
-    "description": "The categories of shared GitLab runners provided by TGR and managed on behalf of the user",
+    "description": "A description of the ",
     "properties": {
-        "items": {
-            "type": "object",
-            "title": "TGR GitLab Runners",
+        "gitlab_runner_categories": {
+            "type": "array",
+            "title": "TGR GitLab runners categories",
             "description": "The categories of shared GitLab runners provided by TGR and managed on behalf of the user",
             "items": {
                 "type": "object",

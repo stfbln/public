@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/stfbln/public/main/test/runners.schema.json",
-    "items": [
+    "gitlab_runner_categories": [
         {
             "name": "TGR-Win",
             "description": "TGR Windows runners",
