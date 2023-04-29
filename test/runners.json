@@ -1,0 +1,97 @@
+{
+    "$schema": "https://raw.githubusercontent.com/stfbln/public/main/test/runners.schema.json",
+    "items": [
+        {
+            "name": "TGR-Win",
+            "description": "TGR Windows runners",
+            "gitlab_runners": [
+                {
+                    "name": "TGR-Win 4 CPU",
+                    "description": "TGR Windows runners with 4 CPU",
+                    "gitlab_runner_configuration": {
+                        "tag": "tgw_win_4",
+                        "run_untagged": false,
+                        "is_shared": true,
+                        "executor": "shell",
+                        "shell": "powershell"
+                    },
+                    "gitlab_job": {
+                        "execution_environment": {
+                            "type": "Windows 10 Virtual Machine"
+                        }
+                    }
+                },
+                {
+                    "name": "TGR-Win 8 CPU",
+                    "description": "TGR Windows runners with 8 CPU",
+                    "gitlab_runner_configuration": {
+                        "tag": "tgw_win_8",
+                        "run_untagged": false,
+                        "is_shared": true,
+                        "executor": "shell",
+                        "shell": "powershell"
+                    },
+                    "gitlab_job": {
+                        "execution_environment": {
+                            "type": "Windows 10 Virtual Machine"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TGR-Lx",
+            "description": "TGR Linux runners",
+            "gitlab_runners": [
+                {
+                    "name": "TGR-Lx 2 CPU",
+                    "description": "TGR Linux runners allowing up to 2 CPU",
+                    "gitlab_runner_configuration": {
+                        "tag": "tgw_lx_2",
+                        "run_untagged": false,
+                        "is_shared": true,
+                        "executor": "kubernetes",
+                        "shell": "bash"
+                    },
+                    "gitlab_job": {
+                        "execution_environment": {
+                            "type": "Linux Docker Container"
+                        }
+                    }
+                },
+                {
+                    "name": "TGR-Lx 8 CPU",
+                    "description": "TGR Linux runners allowing up to 8 CPU",
+                    "gitlab_runner_configuration": {
+                        "tag": "tgw_lx_8",
+                        "run_untagged": false,
+                        "is_shared": true,
+                        "executor": "kubernetes",
+                        "shell": "bash"
+                    },
+                    "gitlab_job": {
+                        "execution_environment": {
+                            "type": "Linux Docker Container"
+                        }
+                    }
+                },
+                {
+                    "name": "TGR-Lx DinD",
+                    "description": "TGR Linux runners allowing docker-in-docker",
+                    "gitlab_runner_configuration": {
+                        "tag": "tgw_lx_dind",
+                        "run_untagged": false,
+                        "is_shared": true,
+                        "executor": "kubernetes",
+                        "shell": "bash"
+                    },
+                    "gitlab_job": {
+                        "execution_environment": {
+                            "type": "Linux Docker Container"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
