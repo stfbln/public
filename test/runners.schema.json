@@ -71,6 +71,14 @@
                                             "description": "The environment where the GitLab job is executed",
                                             "type": "object",
                                             "properties": {
+                                                "is_docker_container": {
+                                                    "description": "Define if the GitLab job is ran in a docker container",
+                                                    "type": "boolean"
+                                                },
+                                                "is_virtual_machine": {
+                                                    "description": "Define if the GitLab job is ran in a virtual machine",
+                                                    "type": "boolean"
+                                                },
                                                 "type": {
                                                     "description": "Describe the type of environment where the GitLab job is executed",
                                                     "type": "string"
