@@ -1,0 +1,392 @@
+{
+    "$schema": "#/$defs/schema",
+    "team": {
+        "name": "TGR",
+        "purposes": [
+            "Enhance the developer experience on GitLab",
+            "Provide a suite of tools and services to use in a CI/CD context on GitLab"
+        ],
+        "context": [
+            "Part of big video game publisher company",
+            "The company uses the InnerSource model",
+            "The company has a GitLab instance on premise managed by another team"
+        ],
+        "contact": {
+            "email": "tgr-support@example.com",
+            "microsoft_teams_channel": "https://teams.microsoft.com/l/chat/0/0",
+            "website": "https://example.com"
+        },
+        "audiance": [
+            "Developers migrating from to GitLab from a different source control",
+            "Developers wanting to participate in the InnerSource community",
+            "Developers familiar with CI/CD concepts but not familiar with GitLab CI/CD module",
+            "Developers wanting to enable CI/CD on their project without having to manage GitLab runners and other details of implementation"
+        ]
+    },
+    "services": {
+        "gitlab_runners": {
+            "name": "TGR Fully Managed GitLab Runners",
+            "purposes": [
+                "A collection of fully managed GitLab runners allowing the users to not bother about maintenance of runners or the infrastructure behind and focus on their CI/CD flow instead",
+                "It enables a smooth developer experience with predictable environment maintained by team TGR",
+                "Adoption is made easy by enabling the user to specify a single tag in their gitlab-ci.yml instead of having a deep understanding of what is necessary to run their CI/CD flow"
+            ],
+            "usage": [
+                "the user has to specify a tag in their gitlab-ci.yml corresponding to one of the TGR fully managed GitLab runner",
+                "The users do not need to register the runner or maintain it since it is fully managed by team TGR"
+            ],
+            "audiance": [
+                "All the users of GitLab internal to the company",
+                "Developers familiar with CI/CD but not so much with gitlab-ci.yml",
+                "Developers requiring examples in code snippet format"
+            ],
+            "runners": [
+                {
+                    "category": "TGR Windows Runners",
+                    "name": "TGR Windows 4 CPU",
+                    "usage": [
+                        "Basic build, test, publish windows CI/CD GitLab jobs",
+                        "Graphical tests on windows"
+                    ],
+                    "executor": "shell",
+                    "shell": "powershell",
+                    "tag": "tgr-windows-4",
+                    "operating_system": "windows",
+                    "audiance": [
+                        "Developers using C# and the Microsoft dotnet ecosystem",
+                        "Developers creating GUI application",
+                        "System administrators deploying to windows and IIS environments"
+                    ]
+                },
+                {
+                    "category": "TGR Windows Runners",
+                    "name": "TGR Windows 8 CPU",
+                    "usage": [
+                        "Intense build windows CI/CD GitLab jobs"
+                    ],
+                    "executor": "shell",
+                    "shell": "powershell",
+                    "tag": "tgr-windows-8",
+                    "operating_system": "windows",
+                    "audiance": [
+                        "Developers using C++",
+                        "Developers creating library and SDKs included in video games that need to be compiled for windows"
+                    ]
+                },
+                {
+                    "category": "TGR Linux Runners",
+                    "name": "TGR Linux 2 CPU",
+                    "usage": [
+                        "Basic build, test, publish linux CI/CD GitLab jobs"
+                    ],
+                    "executor": "kubernetes",
+                    "shell": "bash",
+                    "tag": "tgr-linux-2",
+                    "operating_system": "linux",
+                    "audiance": [
+                        "Developers using web technologies",
+                        "Developers of website frontend",
+                        "Developers of backend and web APIs",
+                        "Developers using npm and node",
+                        "Developers using python",
+                        "System administrators using terraform from HashiCorp",
+                        "System administrators using helm charts",
+                        "System administrators deploying to linux and kubernetes environments"
+                    ]
+                },
+                {
+                    "category": "TGR Linux Runners",
+                    "name": "TGR Linux 8 CPU",
+                    "usage": [
+                        "Intense build linux CI/CD GitLab jobs"
+                    ],
+                    "executor": "kubernetes",
+                    "shell": "bash",
+                    "tag": "tgr-linux-8",
+                    "operating_system": "linux",
+                    "audiance": [
+                        "Developers using C++",
+                        "Developers creating library and SDKs included in video games that need to be compiled for linux"
+                    ]
+                }
+            ]
+        },
+        "video_game_consoles": {
+            "name": "TGR Fully Managed Video game Consoles",
+            "purposes": [
+                "A farm of video game consoles available for developers to use in their CI/CD flow on GitLab",
+                "It enables an easy way to test SDKs and libraries for video games on the end product used by the video game players"
+            ],
+            "usage": [
+                "The user has to specify in their gitlab-ci.yml script they want to reserve a console and then run commands interacting with the console before releasing it for other developers to use",
+                "The consoles are reserved by a GitLab job and are released when the job finishes"
+            ],
+            "audiance": [
+                "Developers creating library and SDKs included in video games that need to test",
+                "Developers familiar with video game console development"
+            ],
+            "consoles": [
+                {
+                    "name": "Playstation 4",
+                    "model": "PS4",
+                    "manufacturer": "Sony",
+                    "firmware": "123.56.0",
+                    "count": 10
+                },
+                {
+                    "name": "Nintendo Switch",
+                    "model": "NX",
+                    "manufacturer": "Nintendo",
+                    "firmware": "1.2.456",
+                    "count": 5
+                }
+            ]
+        }
+    },
+    "$defs": {
+        "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$id": "#/$defs/schema",
+            "title": "Team service and products offering",
+            "description": "Describes a team and what services and products they offer to their colleagues",
+            "type": "object",
+            "properties": {
+                "team": {
+                    "$ref": "#/$defs/team",
+                    "description": "Information about the team offering services"
+                },
+                "services": {
+                    "$ref": "#/$defs/services",
+                    "description": "the services offered by the team"
+                }
+            },
+            "required": [
+                "team",
+                "services"
+            ]
+        },
+        "services": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$id": "#/$defs/services",
+            "title": "Services",
+            "description": "Describe services offered by the team for their colleagues. A service is a fully managed offering enabling the user to do more with less",
+            "type": "object",
+            "properties": {
+                "gitlab_runners": {
+                    "$ref": "#/$defs/gitlab_runners",
+                    "description": "The fully managed GitLab runners service offered by the team"
+                },
+                "video_game_consoles": {
+                    "$ref": "#/$defs/video_game_consoles",
+                    "description": "The fully managed video game console service offered by the team"
+                }
+            }
+        },
+        "gitlab_runners": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/service"
+                }
+            ],
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$id": "#/$defs/gitlab_runners",
+            "title": "Fully Managed GitLab Runners",
+            "description": "Describe the fully managed GitLab runners offered by the team",
+            "type": "object",
+            "properties": {
+                "runners": {
+                    "type": "array",
+                    "description": "A collection of fully managed GitLab runners offered by the team as a service",
+                    "items": {
+                        "$ref": "#/$defs/gitlab_runner",
+                        "description": "A fully managed GitLab runner offered by the team"
+                    }
+                }
+            }
+        },
+        "gitlab_runner": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$id": "#/$defs/gitlab_runner",
+            "title": "Fully Managed GitLab Runner",
+            "description": "Describe a fully managed GitLab runner",
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "string",
+                    "description": "The category of the GitLab runner"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the GitLab runner"
+                },
+                "usage": {
+                    "$ref": "#/$defs/statements",
+                    "description": "Statements describing what are typical use for this GitLab runner"
+                },
+                "executor": {
+                    "type": "string",
+                    "description": "The GitLab runner executor, it impacts the environment where the GitLab jobs are ran"
+                },
+                "shell": {
+                    "type": "string",
+                    "description": "The GitLab runner shell, it impacts how the scripts section of the gitlab-ci.yml are written"
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "The GitLab runner tag to specify in the gitlab-ci.yml"
+                },
+                "operating_system": {
+                    "type": "string",
+                    "description": "The operating system used by the GitLab runner, it impacts the environment where the GitLab jobs are ran and what is possible to do or not"
+                },
+                "audiance": {
+                    "$ref": "#/$defs/statements",
+                    "description": "Statements describing the target audiance for this GitLab runner"
+                }
+            }
+        },
+
+        "video_game_consoles": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/service"
+                }
+            ],
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$id": "#/$defs/video_game_consoles",
+            "title": "Fully Managed Video Game Consoles",
+            "description": "Describe the fully managed video game consoles offered by the team",
+            "type": "object",
+            "properties": {
+                "consoles": {
+                    "type": "array",
+                    "description": "A collection of fully managed video game consoles offered by the team as a service",
+                    "items": {
+                        "$ref": "#/$defs/video_game_console",
+                        "description": "A fully managed video game console offered by the team"
+                    }
+                }
+            }
+        },
+
+        "video_game_console": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$id": "#/$defs/video_game_console",
+            "title": "Video Game Console",
+            "description": "Describe a video game console used for development and testing purpose",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the video game console"
+                },
+                "model": {
+                    "type": "string",
+                    "description": "The model of the video game console"
+                },
+                "manufacturer": {
+                    "type": "string",
+                    "description": "The manufacturer of the video game console"
+                },
+                "firmware": {
+                    "type": "string",
+                    "description": "The version of the firmware installed on the video game console"
+                },
+                "count": {
+                    "type": "integer",
+                    "description": "How many video game console of this model are available"
+                }
+            }
+        },
+
+        "service": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$id": "#/$defs/service",
+            "title": "Service",
+            "description": "Describe a service provided by the team",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the GitLab runner"
+                },
+                "purposes": {
+                    "$ref": "#/$defs/statements",
+                    "description": "Statements describing the purpose of the service, what it is trying to accomplish as part of the company"
+                },
+                "usage": {
+                    "$ref": "#/$defs/statements",
+                    "description": "Statements describing how to use the service"
+                },
+                "audiance": {
+                    "$ref": "#/$defs/statements",
+                    "description": "Statements describing the target audiance for this service"
+                }
+            }
+        },
+        "statements": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$id": "#/$defs/statements",
+            "title": "Statements",
+            "description": "A list of statements for ChatGPT to take into account",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "A statement for ChatGPT to take into account"
+            }
+        },
+        "contact": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$id": "#/$defs/contact",
+            "title": "Contacts",
+            "description": "Contacts information",
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "An email address for someone to contact"
+                },
+                "microsoft_teams_channel": {
+                    "type": "string",
+                    "description": "An link to a Microsoft Teams channel for someone to contact"
+                },
+                "website": {
+                    "type": "string",
+                    "description": "An link to a website for someone to visit and get more information"
+                }
+            }
+        },
+        "team": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$id": "#/$defs/team",
+            "title": "Team",
+            "description": "Describe a team alongside its contact information, its purposes and the context in which it evolves",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the team"
+                },
+                "purposes": {
+                    "$ref": "#/$defs/statements",
+                    "description": "Statements describing the purpose of the team, what it is trying to accomplish as part of the company"
+                },
+                "context": {
+                    "$ref": "#/$defs/statements",
+                    "description": "Statements describing the context in which the company evolves"
+                },
+                "contact": {
+                    "$ref": "#/$defs/contact",
+                    "description": "The team contact information"
+                },
+                "audiance": {
+                    "$ref": "#/$defs/statements",
+                    "description": "Statements describing the target audiance the team cater for"
+                }
+            },
+            "required": [
+                "name"
+            ]
+        }
+    }
+}
