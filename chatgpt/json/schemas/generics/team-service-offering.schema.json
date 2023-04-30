@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://raw.githubusercontent.com/stfbln/public/main/chatgpt/json/schemas/generics/team-service-offering.schema.json",
+    "type": "object",
+    "properties": {
+        "team": {
+            "$ref": "https://raw.githubusercontent.com/stfbln/public/main/chatgpt/json/schemas/generics/team.schema.json",
+            "description": "Information about the team offering services"
+        }
+    },
+    "required": ["team"]
+}

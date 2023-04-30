@@ -1,10 +1,9 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://example.com/TGR_schema.json",
-
-    "type":"array",
+    "$id": "https://raw.githubusercontent.com/stfbln/public/main/chatgpt/json/schemas/generics/statements.schema.json",
+    "type": "array",
     "items": {
         "type": "string",
         "description": "A statement for ChatGPT to take into account"
-     }
+    }
 }
