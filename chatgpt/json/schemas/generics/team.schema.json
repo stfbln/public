@@ -14,6 +14,10 @@
         "context": {
             "$ref": "https://raw.githubusercontent.com/stfbln/public/main/chatgpt/json/schemas/generics/statements.schema.json",
             "description": "Statements describing the context in which the company evolves"
+        },
+        "contact": {
+            "$ref": "https://raw.githubusercontent.com/stfbln/public/main/chatgpt/json/schemas/generics/contact.schema.json",
+            "description": "The team contact information"
         }
     },
     "required": ["name"]

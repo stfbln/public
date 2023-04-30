@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://raw.githubusercontent.com/stfbln/public/main/chatgpt/json/schemas/generics/contact.schema.json",
+    "type": "object",
+    "properties": {
+        "email": {
+            "type": "string",
+            "description": "An email address for someone to contact"
+        },
+        "microsoft_teams_channel": {
+            "type": "string",
+            "description": "An link to a Microsoft Teams channel for someone to contact"
+        },
+        "website": {
+            "type": "string",
+            "description": "An link to a website for someone to visit and get more information"
+        }
+    }
+}
